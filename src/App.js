@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import BootModal from './BootModal';
+import InjModal from './InjModal';
+import InjectFirstProvider from './InjectFirstProvider'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
 
-function App() {
+const App = () => {
+  const [toggleState, toggleModals] = useState(true)
+
+  const StyledDiv = styled.div`
+    /* height: 100vw; */
+    /* width: 100vw; */
+    /* background-color: lightgrey; */
+    /* padding: 3rem; */
+  `
+
+  const handleClick = () => {
+    toggleModals((prevState) => !prevState);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <StyledDiv></StyledDiv>
+      {toggleState ? (
+        <BootModal handleClick={handleClick} />
+      ) : (
+        <InjectFirstProvider>
+          <InjModal handleClick={handleClick} />
+        </InjectFirstProvider>
+      )}
+    </>
   );
 }
 

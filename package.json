@@ -6,9 +6,20 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.4.1",
+    "jss": "^10.0.4",
+    "jss-plugin-camel-case": "^10.0.4",
+    "jss-plugin-default-unit": "^10.0.4",
+    "jss-plugin-global": "^10.0.4",
+    "jss-plugin-nested": "^10.0.4",
+    "jss-plugin-props-sort": "^10.0.4",
+    "jss-plugin-rule-value-function": "^10.0.4",
+    "jss-plugin-vendor-prefixer": "^10.0.4",
     "react": "^16.13.0",
+    "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "styled-components": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
