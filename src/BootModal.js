@@ -1,3 +1,5 @@
+// https://getbootstrap.com/docs/3.4/javascript/
+// dismissible popover example
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -11,10 +13,7 @@ const offset = {
 }
 
 const StyledModal = styled(Modal)`
-  .modal-backdrop {
-    /* position: relative; */
-    /* z: -10000; */
-  }
+  .modal-backdrop {}
 
   .modal-dialog {
     position: fixed;
@@ -23,26 +22,35 @@ const StyledModal = styled(Modal)`
   }
 
   .modal-content {
+    background-color: seagreen;
     height: 25rem;
     width: 15rem;
-    background-color: seagreen;
   }
 `;
 
 const StyledButton = styled(Button)`
-    position: absolute;
-    z-index: 1080;
-    bottom: ${offset.fromBottom}rem;
-    right: ${offset.fromRight}rem;
     background-color: red;
     border-radius: 50%;
     border: none;
     height:3rem;
+    position: absolute;
     width:3rem;
+    z-index: 1080;
+    bottom: ${offset.fromBottom}rem;
+    right: ${offset.fromRight}rem;
+`;
+
+const StyledModalButton = styled(Button)`
+  float: right;
+  align-self: flex-end;
+  vertical-align: 80%
+`;
+
+const StyledModalBody = styled(StyledModal.Body)`
+  height: 300px;
 `;
 
 const BootModal = ({ handleClick }) => {
-  const handleModalClick = () => handleClick();
   const [modalState, setModalState] = useState(false);
 
   return (
@@ -50,14 +58,14 @@ const BootModal = ({ handleClick }) => {
       <StyledModal
         show={modalState}
         keyboard
-        restoreFocus
-        backdropClassName='abc'
       >
         <StyledModal.Header>Header</StyledModal.Header>
-        <StyledModal.Body>
-          Body
-          <button onClick={handleModalClick}>Switch</button>
-        </StyledModal.Body>
+        <StyledModalBody
+          as='button'
+          onClick={() => setModalState(false)}
+        >
+          Click Me
+        </StyledModalBody>
         <StyledModal.Footer>Footer</StyledModal.Footer>
       </StyledModal>
       <StyledButton
